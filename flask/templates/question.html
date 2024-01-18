@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Question
+{% endblock %}
+
+{% block content %}
+<h2>{{ verdict }}
+<br/><br/>
+Question: {{ question }}
+<br/><br/>
+<form action="{{ url_for('answer') }}" method="get">
+    {% for _ in range(num_answers) %}
+    Answer: <input type="text" name="answer" placeholder="Enter your answer" style="height: 40px; font-size: 20px;" {{ 'autofocus' if loop.first else '' }}>
+    &nbsp;&nbsp;
+    {% endfor %}
+    <input type="hidden" name="question_id" value="{{ question_id }}">
+    <input type="hidden" name="session_id" value="{{ session_id }}">
+    <input type="hidden" name="num_answers" value="{{ num_answers }}">
+    <input type="submit" value="Submit" style="height: 40px; font-size: 20px;">
+</form>
+&nbsp;&nbsp;
+<form action="{{ url_for('quit') }}" method="get">
+    <input type="hidden" name="session_id" value="{{ session_id }}">
+    <input type="submit" value="Finish"  style="height: 40px; font-size: 20px;">
+</form>
+</h2>
+{% endblock %}

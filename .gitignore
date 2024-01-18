@@ -1,0 +1,17 @@
+# Ignore .env file in any folder
+**/.env
+
+# Ignore __pycache__ folder in any folder
+**/__pycache__
+
+# Ignore other common files and folders for Python projects
+*.pyc
+*.pyo
+*.egg
+*.egg-info
+dist
+build
+docs/_build
+venv
+
+
