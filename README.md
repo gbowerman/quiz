@@ -34,6 +34,7 @@ E.g. on Debian (in WSL):
     # create a postgres user and give it a password
     sudo passwd postgres
     sudo systemctl enable postgresql
+    sudo service postgresql start
 
 Create a PostgreSQL user for the quiz app. Enter the psql shell with "sudo -u postgres psql" and run create a SQL user for the database:
 
