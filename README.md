@@ -9,6 +9,7 @@ __Features__
 - Session and question management uses PostgreSQL (via psycopg2)
 - Keeps going until all questions answered successfully
 - Finish button ends session with score summary
+- Run web app and DB locally or in cloud
 
 __Setup__ 
 
