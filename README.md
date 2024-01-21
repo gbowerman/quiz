@@ -2,18 +2,20 @@
 
 Python Flask based quiz app optimized for memorization training
 
-![](./img/quiz.png)
+![](./img/quiz0.png)
 
-__Features__
-- Based on Flask web framework
-- Session and question management uses PostgreSQL (via psycopg2)
-- Keeps going until all questions answered successfully
-- Finish button ends session with score summary
+## Features
+- Based on Python Flask web framework
+- Session and question management via PostgreSQL (using psycopg2)
+- Keeps asking questions until answered correctly
+- Or use __Finish__ button ends session with score summary
 - Run web app and DB locally or in cloud
 
-__Setup__ 
+![](./img/quiz.png)
 
-__Usage__ 
+## Setup
+
+## Usage
 
 
 
