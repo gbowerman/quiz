@@ -85,18 +85,22 @@ cd to flask directory and run:
     flask run
 
 ## Running app in cloud
-E.g. to run in Azure App Service. Clone the repo to [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview). cd to the flask folder. Decide which sku and data center location to use. Create an Azure resource group. Then create the app with _az webapp up_. E.g.:
+E.g. In Azure App Service. Make sure you have a remotely accessible PostgreSQL server running (e.g. [Azure Database for PostgreSQL flexible server](https://learn.microsoft.com/azure/postgresql/flexible-server/overview)) with the schema, database user, in place and one or more quizzes loaded. 
+
+You can deploy from a local machine if you have Azure CLI installed, though I find it easier to deploy from Azure Cloud Shell [Azure Cloud Shell](https://learn.microsoft.com/azure/cloud-shell/overview) which is an Azure Linux instance with CLI already set up. 
+
+Clone the repo and cd to the flask folder. Decide which sku and data center location to use. Create an Azure resource group. Then create the app with _az webapp up_. E.g.:
 
     az group create --name my-quiz-rg --location westus3
     az webapp up --runtime PYTHON:3.9 --sku B1 --logs -g my-quiz-rg -l westus3 --name my-quiz-app
 
 Notes: 
-
-- The sku you select will affect the monthly cost. Use _F1_ for the free plan. See [App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) for details.
-
-- The app will not run successfully in Azure App Service until you set the web app environment variables to the correct values to connect to the PostgreSQL database and restart the app:
+- Use the __-v__ argument to set the environment variables for PostgreSQL (HOST, DATABASE, DB_USERNAME, DB_PASSWORD), or if you don't want to specify them on the command line, the app will deploy, but won't run successfully in Azure App Service until you set the web app environment variables to the correct values to connect to the PostgreSQL database and restart the app:
 
 ![](./img/app_service_env.png)
+- The sku you select will affect the monthly cost. Use _F1_ for the free plan. See [App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) for details.
+
+
 
 - If using [Azure Database for PostgreSQL flexible server](https://learn.microsoft.com/azure/postgresql/flexible-server/overview) for the database, set a firewall rule to allow local development if needed, and allow public access from any Azure service with Azure. E.g.
 
