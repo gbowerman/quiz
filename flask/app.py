@@ -1,5 +1,5 @@
 import os
-import psycopg2
+import psycopg
 import uuid
 from flask import Flask, render_template, request
 
@@ -8,11 +8,8 @@ app = Flask(__name__)
 # connect to named DB, getting credentials from environment
 # to do: add SQL exception handling to all the SQL calls
 def connect_db():
-    conn = psycopg2.connect(
-        host=os.environ['HOST'],
-        database=os.environ['DATABASE'],
-        user=os.environ['DB_USERNAME'],
-        password=os.environ['DB_PASSWORD'])
+    connection_string = f"host={os.environ['HOST']} dbname={os.environ['DATABASE']} user={os.environ['DB_USERNAME']} password={os.environ['DB_PASSWORD']}"
+    conn = psycopg.connect(connection_string)
     return conn
 
 '''Create a new session'''
