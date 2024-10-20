@@ -6,7 +6,7 @@ Python Flask quiz app optimized for memorization training
 
 ## Features
 - Based on Python Flask web framework
-- Session and question management via PostgreSQL (using psycopg2)
+- Session and question management via PostgreSQL (using psycopg)
 - Keeps asking questions until answered correctly
 - Or use __Finish__ button ends session with score summary
 - Run web app and DB locally or in cloud
@@ -17,13 +17,13 @@ Python Flask quiz app optimized for memorization training
 Set up the app running locally by installing an environment for PostgreSQL and Python Flask. Once it's working and customized, you can choose to upload it to a web app service for remote connection.
 
 ### Python and packages
-Install latest Python, Flask, and psycopg2 library (for PostgreSQL). Tested with a Debian image in [WSL2](https://learn.microsoft.com/windows/wsl/install). 
+Install latest Python, Flask, and psycopg library (for PostgreSQL). Tested with a Debian image in [WSL2](https://learn.microsoft.com/windows/wsl/install). 
 
 E.g. on Debian: 
 
     sudo apt install python3
     sudo apt install python3-flask
-    sudo apt install python3-psycopg2
+    sudo apt install python3-psycopg
 
 ### PostgreSQL
 Install PostgreSQL locally or set up a cloud service. 
