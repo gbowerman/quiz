@@ -2,17 +2,14 @@
 '''load_quiz.py - load a CSV quiz file into the quiz database'''
 import os
 import sys
-import psycopg2
+import psycopg
 import csv
 from dotenv import load_dotenv
 
 # connect to named DB, getting credentials from environment
 def connect_db():
-    conn = psycopg2.connect(
-        host=os.environ['HOST'],
-        database=os.environ['DATABASE'],
-        user=os.environ['DB_USERNAME'],
-        password=os.environ['DB_PASSWORD'])
+    connection_string = f"host={os.environ['HOST']} dbname={os.environ['DATABASE']} user={os.environ['DB_USERNAME']} password={os.environ['DB_PASSWORD']}"
+    conn = psycopg.connect(connection_string)
     return conn
 
 # insert a row into the titles table and return the title_id
