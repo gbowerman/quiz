@@ -2,12 +2,16 @@
 
 ''' show_titles.py - list the available quizzes in the quiz DB'''
 import os
-import psycopg2
+import psycopg
 from dotenv import load_dotenv
 
 # load environment
 load_dotenv()
 
+# connect to named DB, getting credentials from environment
+connection_string = f"host={os.environ['HOST']} dbname={os.environ['DATABASE']} user={os.environ['DB_USERNAME']} password={os.environ['DB_PASSWORD']}"
+conn = psycopg.connect(connection_string)
+        
 conn = psycopg2.connect(
         host=os.environ['HOST'],
         database=os.environ['DATABASE'],
